@@ -1,0 +1,21 @@
+name = "test"
+logging_level = "debug"
+monitor = true
+monitor_addr = "127.0.0.1:8092"
+
+[endpoints]
+
+[endpoints.test]
+addr = ":8090"
+workers = 10
+speed_limit = 5
+total_limit = 10
+
+
+[balancers]
+
+[balancers.test]
+addr=":8091"
+type="round_robin"
+addrs= ["127.0.0.1:9000", "127.0.0.1:9001", "127.0.0.1:9002"]
+workers = 10
